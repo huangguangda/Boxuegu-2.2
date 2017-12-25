@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Boxuegu</string>
+    <string name="textView_text">欢迎您！</string>
 </resources>
