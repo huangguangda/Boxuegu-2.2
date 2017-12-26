@@ -18,12 +18,15 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
+import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 /**
  * Created by Jack on 2017/12/26.
  */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+
     //视图
     private ExercisesView mExercisesView;
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View mMyInfoBtn;
 
     //登录界面
-//    private MyInfoView mMyInfoView;
+    private MyInfoView mMyInfoView;
 
 
     private TextView tv_course;
@@ -160,7 +163,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mMyInfoBtn.setSelected ( true );
                 iv_myInfo.setImageResource ( R.drawable.main_my_icon_selected );
                 tv_myInfo.setTextColor ( Color.parseColor ( "#0097F7" ) );
-                rl_title_bar.setVisibility ( View.GONE );
+//                rl_title_bar.setVisibility ( View.GONE );
+                rl_title_bar.setVisibility ( View.VISIBLE );
+                tv_main_title.setText ( "博学谷课程" );
         }
     }
     //移除不需要的视图
@@ -203,7 +208,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mExercisesView.showView();
                 break;
             case 2:
-
+                //我的界面
+                if (mMyInfoView == null){
+                    mMyInfoView = new MyInfoView ( this );
+                    mBodyLayout.addView ( mMyInfoView.getView () );
+                }else {
+                    mMyInfoView.getView ();
+                }
+                mMyInfoView.showView ();
                 break;
         }
     }
@@ -215,6 +227,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (isLogin){//登录成功时显示课程界面
                 clearBottomImageState ();
                 selectDisplayView ( 0 );
+            }
+            if (mMyInfoView!=null){
+                mMyInfoView.setLoginParams ( isLogin );
             }
 
         }
@@ -247,6 +262,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             boolean isLogin = sp.getBoolean ( "isLogin", false );
             return isLogin;
     }
+
     //清除SharedPreferences中的登录状态和登录时的用户名
     private void clearLoginStatus(){
         SharedPreferences sp = getSharedPreferences ( "loginInfo",
