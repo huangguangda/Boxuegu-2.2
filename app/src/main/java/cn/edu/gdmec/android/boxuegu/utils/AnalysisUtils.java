@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.boxuegu.utils;
-//
-
+//12.26
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Xml;
