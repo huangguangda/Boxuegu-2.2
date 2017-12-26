@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View mExercisesBtn;
     private View mMyInfoBtn;
 
+    //登录界面
+//    private MyInfoView mMyInfoView;
+
+
     private TextView tv_course;
     private TextView tv_exercises;
     private TextView tv_myInfo;
@@ -243,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             boolean isLogin = sp.getBoolean ( "isLogin", false );
             return isLogin;
     }
-    //清除SharedPreferences中的登录状态
+    //清除SharedPreferences中的登录状态和登录时的用户名
     private void clearLoginStatus(){
         SharedPreferences sp = getSharedPreferences ( "loginInfo",
                 Context.MODE_PRIVATE);

@@ -22,9 +22,13 @@ import cn.edu.gdmec.android.boxuegu.utils.MD5Utils;
  */
 
 public class RegisterActivity extends AppCompatActivity{
+
     private TextView tv_main_title;//标题
     private TextView tv_back;//返回按钮
+
     private Button btn_register;//注册按钮
+
+    //用户名、密码、再次输入的密码的控件
     private EditText et_user_name,et_psw,et_psw_again;
     //用户名，密码，再次输入的密码的控件的获取值
     private String userName,psw,pswAgain;
@@ -42,12 +46,15 @@ public class RegisterActivity extends AppCompatActivity{
     private void init(){
         //从main_title_bar.xml页面布局中获得对应的UI控件
         tv_main_title = (TextView) findViewById ( R.id.tv_main_title );
+
         tv_main_title.setText ( "注册" );
+
         tv_back = (TextView) findViewById ( R.id.tv_back );
         rl_title_bar = (RelativeLayout) findViewById ( R.id.title_bar );
         rl_title_bar.setBackgroundColor ( Color.TRANSPARENT );
         //从activity_register.xml页面布局中获得对应的UI控件
         btn_register = (Button) findViewById ( R.id.btn_register );
+
         et_user_name = (EditText) findViewById ( R.id.et_user_name );
         et_psw = (EditText) findViewById ( R.id.et_psw );
         et_psw_again = (EditText) findViewById ( R.id.et_psw_again );
