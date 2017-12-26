@@ -12,6 +12,7 @@
         android:layout_height="1dp"
         android:layout_margin="15dp"
         android:background="#E3E3E3">
+
     </View>
     <RelativeLayout
         android:id="@+id/rl_modiy_psw"
