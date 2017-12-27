@@ -40,7 +40,7 @@ public class PlayHistoryActivity extends AppCompatActivity{
         init();
     }
 
-    //初始化UI控件
+     //  初始化UI控件
     private void init() {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         tv_main_title.setText("播放记录");
