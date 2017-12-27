@@ -3,13 +3,12 @@ package cn.edu.gdmec.android.boxuegu.sqlite;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.StrictMode;
 
 /**
- * Created by student on 17/12/27.
+ * Created by Jack on 2017/12/27.
  */
 
-public class SQLiteHelper extends SQLiteOpenHelper{
+public class SQLiteHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     public static final String DB_NAME = "bxg.db";
     public static final String U_USERINFO = "userinfo";
@@ -20,12 +19,12 @@ public class SQLiteHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + U_USERINFO + "( "
-        + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + "userName VARCHAR, "
-        + "nickName VARCHAR, "
-        +  "sex VARCHAR, "
-        + "signature VARCHAR"
-        + ")" );
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "userName VARCHAR, "
+                + "nickName VARCHAR, "
+                +  "sex VARCHAR, "
+                + "signature VARCHAR"
+                + ")" );
     }
 
     @Override

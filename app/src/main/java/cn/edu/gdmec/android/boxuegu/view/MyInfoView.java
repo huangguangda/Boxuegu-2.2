@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
+import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
 import cn.edu.gdmec.android.boxuegu.activity.UserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
@@ -52,9 +53,11 @@ public class MyInfoView {
         mCurrentView = mInflater.inflate ( R.layout.main_view_myinfo, null );
         ll_head = (LinearLayout) mCurrentView.findViewById ( R.id.ll_head );
         iv_head_icon = (ImageView ) mCurrentView.findViewById ( R.id.iv_head_icon );
+
         rl_course_history = (RelativeLayout) mCurrentView.findViewById ( R.id.rl_course_history );
         rl_setting = (RelativeLayout) mCurrentView.findViewById ( R.id.rl_setting );
         tv_user_name = (TextView) mCurrentView.findViewById ( R.id.tv_user_name );
+
         mCurrentView.setVisibility ( View.VISIBLE );
         setLoginParams(readLoginStatus ());
 
@@ -64,9 +67,13 @@ public class MyInfoView {
                 //判断是否已经登录
                 if (readLoginStatus ()){
                     //跳转到个人资料界面
+                    /*Intent intent = new Intent ( mContext, MyInfoView.class );
+                    mContext.startActivity ( intent );*/
+
                     Intent intent = new Intent(mContext,UserInfoActivity.class);
                     mContext.startActivity(intent);
                 }else {
+                    //跳转到登录界面
                     Intent intent = new Intent ( mContext, LoginActivity.class );
                     ((Activity) mContext).startActivityForResult ( intent, 1 );
                 }
@@ -87,14 +94,19 @@ public class MyInfoView {
             @Override
             public void onClick(View view) {
                 if (readLoginStatus ()){
+
                     //跳转到设置界面
+                    Intent intent = new Intent ( mContext, SettingActivity.class );
+                    ((Activity) mContext).startActivityForResult ( intent, 1 );
+
                 }else {
                     Toast.makeText ( mContext, "您还未登录，请先登录", Toast.LENGTH_SHORT ).show ();
                 }
             }
         } );
     }
-    //可见性  该private 为 public
+
+    //可见性  该private 为 public 获取登录名
     public void setLoginParams(boolean isLogin){
         if (isLogin){
             tv_user_name.setText ( AnalysisUtils.readLoginUserName ( mContext ) );

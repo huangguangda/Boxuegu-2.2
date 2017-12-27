@@ -4,13 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.StrictMode;
 
 import cn.edu.gdmec.android.boxuegu.bean.UserBean;
 import cn.edu.gdmec.android.boxuegu.sqlite.SQLiteHelper;
 
 /**
- * Created by student on 17/12/27.
+ * Created by Jack on 2017/12/27.
  */
 
 public class DBUtils {
@@ -19,8 +18,8 @@ public class DBUtils {
     private static SQLiteDatabase db;
     private static DBUtils instance = null;
     public DBUtils(Context context) {
-         helper = new SQLiteHelper(context);
-         db = helper.getWritableDatabase();
+        helper = new SQLiteHelper (context);
+        db = helper.getWritableDatabase();
     }
 
     public static DBUtils getInstance(Context context){
@@ -30,7 +29,7 @@ public class DBUtils {
         return instance;
     }
     public void saveUserInfo(UserBean bean){
-        ContentValues cv = new ContentValues();
+        ContentValues cv = new ContentValues ();
         cv.put("userName",bean.userName);
         cv.put("nickName",bean.nickName);
         cv.put("sex",bean.sex);
