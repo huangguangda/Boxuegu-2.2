@@ -165,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tv_myInfo.setTextColor ( Color.parseColor ( "#0097F7" ) );
 //                rl_title_bar.setVisibility ( View.GONE );
                 rl_title_bar.setVisibility ( View.VISIBLE );
-                tv_main_title.setText ( "博学谷课程" );
+                //tv_main_title.setText ( "博学谷课程" );
+                break;
         }
     }
     //移除不需要的视图
