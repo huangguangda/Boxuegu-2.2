@@ -30,6 +30,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     private RelativeLayout rl_signature;
     private String spUserName;
     private String sex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
