@@ -18,7 +18,6 @@ import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 /**
  * Created by Jack on 2017/12/27.
  */
-
 public class VideoListAdapter extends BaseAdapter{
     private Context mContext;
     private List<VideoBean> vbl;//视频列表数据
