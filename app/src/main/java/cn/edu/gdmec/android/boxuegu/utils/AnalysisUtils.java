@@ -127,7 +127,7 @@ public class AnalysisUtils {
      */
     public static String readLoginUserName(Context context){
         SharedPreferences sp=context.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
-        String userName=sp.getString("loginUSerName","");//获取登录时的用户名
+        String userName=sp.getString("loginUserName","");//获取登录时的用户名
         return userName;
     }
 }

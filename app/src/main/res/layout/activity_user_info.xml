@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/activity_user_info"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@android:color/white"
-              tools:context=".activity.UserInfoActivity"
-    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_user_info"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
     <include layout="@layout/main_title_bar"></include>
 
     <RelativeLayout
@@ -16,7 +15,6 @@
         android:layout_marginRight="15dp"
         android:layout_width="fill_parent"
         android:layout_height="60dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,14 +35,12 @@
     <View android:layout_width="fill_parent"
           android:layout_height="1dp"
           android:background="#E4E4E4"></View>
-
     <RelativeLayout
         android:id="@+id/rl_account"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_width="fill_parent"
         android:layout_height="60dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +48,6 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:text="用户名"/>
-
         <TextView
             android:text="account"
             android:textColor="#a3a3a3"
@@ -76,7 +71,6 @@
         android:layout_marginRight="15dp"
         android:layout_width="fill_parent"
         android:layout_height="60dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +78,6 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:text="昵 称"/>
-
         <TextView
             android:text="昵 称"
             android:singleLine="true"
@@ -147,13 +140,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:singleLine="true"
             android:textColor="#000000"
             android:textSize="16sp"
             android:text="签 名"/>
-
         <TextView
             android:text="大家好"
-            android:singleLine="true"
             android:textColor="#a3a3a3"
             android:textSize="14sp"
             android:layout_centerVertical="true"

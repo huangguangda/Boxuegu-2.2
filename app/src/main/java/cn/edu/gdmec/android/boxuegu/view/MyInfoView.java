@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
+import cn.edu.gdmec.android.boxuegu.activity.PlayHistoryActivity;
 import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
 import cn.edu.gdmec.android.boxuegu.activity.UserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
@@ -30,15 +31,17 @@ public class MyInfoView {
     private View mCurrentView;
     private LinearLayout ll_head;
     private ImageView iv_head_icon;
+
     private RelativeLayout rl_course_history;
     private RelativeLayout rl_setting;
     private TextView tv_user_name;
 
     public MyInfoView(Context context) {
-        this.mContext=context;
+        mContext=context;
+        //为之后将Layout转换为view时用
         mInflater = LayoutInflater.from ( mContext );
     }
-
+    //获取当前在导航栏上方显示对应的View
     public View getView(){
         if (mCurrentView == null){
             createView();
@@ -48,7 +51,7 @@ public class MyInfoView {
     private void createView(){
         initView ();
     }
-
+//设置布局文件
     private void initView(){
         mCurrentView = mInflater.inflate ( R.layout.main_view_myinfo, null );
         ll_head = (LinearLayout) mCurrentView.findViewById ( R.id.ll_head );
@@ -59,7 +62,7 @@ public class MyInfoView {
         tv_user_name = (TextView) mCurrentView.findViewById ( R.id.tv_user_name );
 
         mCurrentView.setVisibility ( View.VISIBLE );
-        setLoginParams(readLoginStatus ());
+        setLoginParams(readLoginStatus ());//设置登录时界面控件的状态
 
         ll_head.setOnClickListener ( new View.OnClickListener (){
             @Override
@@ -76,6 +79,7 @@ public class MyInfoView {
                     //跳转到登录界面
                     Intent intent = new Intent ( mContext, LoginActivity.class );
                     ((Activity) mContext).startActivityForResult ( intent, 1 );
+                    //mContext.startActivityForResult(intent,1);
                 }
             }
         } );
@@ -84,6 +88,9 @@ public class MyInfoView {
             public void onClick(View view) {
                 if (readLoginStatus ()){
                     //跳转到播放记录界面
+                    Intent intent = new Intent ( mContext, PlayHistoryActivity.class );
+                    mContext.startActivity ( intent );
+
                 }else {
                     Toast.makeText ( mContext, "您还未登录，请先登录", Toast.LENGTH_SHORT ).show ();
                 }
@@ -98,6 +105,7 @@ public class MyInfoView {
                     //跳转到设置界面
                     Intent intent = new Intent ( mContext, SettingActivity.class );
                     ((Activity) mContext).startActivityForResult ( intent, 1 );
+                    //mContext.startActivityForResult(intent,1);
 
                 }else {
                     Toast.makeText ( mContext, "您还未登录，请先登录", Toast.LENGTH_SHORT ).show ();
@@ -114,7 +122,7 @@ public class MyInfoView {
             tv_user_name.setText ( "点击登录" );
         }
     }
-
+//从SharedPreferences中读取登录状态
     private boolean readLoginStatus(){
         SharedPreferences sp = mContext.getSharedPreferences ( "loginInfo", Context.MODE_PRIVATE );
         boolean isLogin = sp.getBoolean ( "isLogin", false );

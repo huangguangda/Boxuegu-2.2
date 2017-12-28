@@ -73,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
         tv_find_psw.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                //跳转到找回密码界面
+                Intent intent = new Intent ( LoginActivity.this, FindPswActivity.class );
+                startActivity ( intent );
             }
         } );
         //登录按钮的点击事件
@@ -93,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT ).show ();
                     return;
                 } else if (md5Psw.equals ( spPsw )) {
+
                     Toast.makeText ( LoginActivity.this, "登录成功",
                             Toast.LENGTH_SHORT ).show ();
                     //保存登录状态和登录的用户名
@@ -107,7 +109,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     //LoginActivity.this.finish ();
                     return;
-                } else if ((!TextUtils.isEmpty ( spPsw ) && !md5Psw.equals ( spPsw ))) {
+//                } else if ((!TextUtils.isEmpty ( spPsw ) && !md5Psw.equals ( spPsw ))) {
+                } else if ((spPsw!=null&&!TextUtils.isEmpty ( spPsw ) && !md5Psw.equals ( spPsw ))) {
                     Toast.makeText ( LoginActivity.this, "输入的用户名和密码不一致",
                             Toast.LENGTH_SHORT ).show ();
                     return;
