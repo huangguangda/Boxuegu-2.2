@@ -63,6 +63,7 @@ public class FindPswActivity extends AppCompatActivity {
                 FindPswActivity.this.finish();
             }
         });
+
         btn_validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
