@@ -23,17 +23,16 @@ class ViewPagerIndicator extends LinearLayout{
     public ViewPagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        setGravity ( Gravity.CENTER );
+        setGravity ( Gravity.CENTER );//设置此布局居中
     }
-
-
-
+//设置滑动到当前小圆点时其他圆点的位置
     public void setCurrentPosition(int currentIndex) {
 
-        mIndex = currentIndex;
-        removeAllViews ();
+        mIndex = currentIndex;//当前小圆点
+        removeAllViews ();//移除界面上存在的view
         int pex = 5;//内边距
         for (int i=0; i < mCount; i++){
+            //创建一个imageview控件来放置小圆点
             ImageView imageView = new ImageView ( context );
             if (mIndex==i){
                 //蓝色为选中小圆点
@@ -46,6 +45,7 @@ class ViewPagerIndicator extends LinearLayout{
             addView ( imageView );
         }
     }
+    //设置小圆点的数目
     public void setCount(int count) {
         this.mCount=count;
     }

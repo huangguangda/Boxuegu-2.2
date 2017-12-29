@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         //登录按钮的点击事件
         btn_login.setOnClickListener ( new View.OnClickListener () {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 userName=et_user_name.getText ().toString ().trim ();
                 psw=et_psw.getText ().toString ().trim ();
                 String md5Psw=MD5Utils.md5 ( psw );

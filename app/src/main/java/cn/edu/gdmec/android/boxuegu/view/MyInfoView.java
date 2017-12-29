@@ -24,19 +24,19 @@ import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
  */
 
 public class MyInfoView {
-    private Context mContext;
+    private Activity mContext;
 
     private final LayoutInflater mInflater;
 
     private View mCurrentView;
     private LinearLayout ll_head;
-    private ImageView iv_head_icon;
+    public ImageView iv_head_icon;
 
     private RelativeLayout rl_course_history;
     private RelativeLayout rl_setting;
     private TextView tv_user_name;
 
-    public MyInfoView(Context context) {
+    public MyInfoView(Activity context) {
         mContext=context;
         //为之后将Layout转换为view时用
         mInflater = LayoutInflater.from ( mContext );
@@ -70,9 +70,6 @@ public class MyInfoView {
                 //判断是否已经登录
                 if (readLoginStatus ()){
                     //跳转到个人资料界面
-                    /*Intent intent = new Intent ( mContext, MyInfoView.class );
-                    mContext.startActivity ( intent );*/
-
                     Intent intent = new Intent(mContext,UserInfoActivity.class);
                     mContext.startActivity(intent);
                 }else {
