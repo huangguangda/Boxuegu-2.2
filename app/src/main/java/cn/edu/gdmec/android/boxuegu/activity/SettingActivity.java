@@ -32,6 +32,7 @@ public class SettingActivity extends AppCompatActivity{
         instance=this;
         init();
     }
+
     //获取界面控件
     private void init(){
         tv_main_title = (TextView) findViewById ( R.id.tv_main_title );
