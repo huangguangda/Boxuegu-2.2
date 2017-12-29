@@ -67,7 +67,7 @@ public class FindPswActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String validateName = et_validate_name.getText().toString().trim();
-                if("srcurity".equals(from)){    //设置密保
+                if("security".equals(from)){    //设置密保
                     if(TextUtils.isEmpty(validateName)){
                         Toast.makeText(FindPswActivity.this,"请输入要验证的姓名",
                                 Toast.LENGTH_LONG).show();
