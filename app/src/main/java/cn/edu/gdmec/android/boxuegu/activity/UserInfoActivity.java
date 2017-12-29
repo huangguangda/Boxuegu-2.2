@@ -55,6 +55,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     }
 
    //设置控件的点击监听事件
+
     private void setListener() {
         tv_back.setOnClickListener(this);
         rl_nickName.setOnClickListener( this );
