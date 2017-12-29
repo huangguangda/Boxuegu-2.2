@@ -40,7 +40,7 @@ public class CourseAdapter extends BaseAdapter{
     public List<CourseBean> getItem(int position){
         return cbl == null ? null : cbl.get ( position );
     }
-    //格局positiono得到对应Item的id
+    //格局position得到对应Item的id
     @Override
     public long getItemId(int position){
         return position;

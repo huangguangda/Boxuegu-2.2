@@ -51,7 +51,6 @@ public class PlayHistoryAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
         final ViewHolder vh;
-        //final ViewHolder vh;
         if (convertView == null){
             vh = new ViewHolder ();
             convertView =LayoutInflater.from ( mContext ).inflate (

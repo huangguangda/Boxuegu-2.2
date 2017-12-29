@@ -57,12 +57,9 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
    //设置控件的点击监听事件
     private void setListener() {
         tv_back.setOnClickListener ( this );
-
-        tv_user_name.setOnClickListener(this);
-
-        tv_nickName.setOnClickListener(this);
-        tv_sex.setOnClickListener(this);
-        tv_signature.setOnClickListener(this);
+        rl_nickName.setOnClickListener(this);
+        rl_sex.setOnClickListener(this);
+        rl_signature.setOnClickListener(this);
     }
 
     //初始化控件
@@ -102,7 +99,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //为界面控制设置值
-    public void setValue(UserBean bean) {
+    private void setValue(UserBean bean) {
         tv_nickName.setText(bean.nickName);
         tv_user_name.setText(bean.userName);
         tv_sex.setText(bean.sex);
@@ -124,7 +121,6 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                 bdName.putInt ( "flag", 1 );//flag传递1时表示是修改昵称
                 enterActivityForResult(ChangeUserInfoActivity.class,
                         CHANGE_NICKNAME, bdName);//跳到个人资料修改界面
-
                 break;
             case R.id.rl_sex:   //性别的点击事件
                 String sex = tv_sex.getText().toString();//获取性别控件上的数据
@@ -160,7 +156,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {//第二个参数是默认选中的哪个选项
                 dialog.dismiss();
-                Toast.makeText(UserInfoActivity.this, items[which], Toast.LENGTH_LONG).show();
+                Toast.makeText(UserInfoActivity.this, items[which], Toast.LENGTH_SHORT).show();
                 setSex(items[which]);
             }
         });

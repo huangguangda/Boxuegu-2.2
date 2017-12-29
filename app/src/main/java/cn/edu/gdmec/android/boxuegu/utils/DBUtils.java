@@ -17,10 +17,9 @@ import cn.edu.gdmec.android.boxuegu.sqlite.SQLiteHelper;
  */
 
 public class DBUtils {
-
+    private static DBUtils instance = null;
     private static SQLiteHelper helper;
     private static SQLiteDatabase db;
-    private static DBUtils instance = null;
 
     public DBUtils(Context context) {
         helper = new SQLiteHelper (context);
@@ -36,11 +35,11 @@ public class DBUtils {
     //保存个人资料信息
     public void saveUserInfo(UserBean bean){
         ContentValues cv = new ContentValues ();
-        cv.put("userName",bean.userName);
-        cv.put("nickName",bean.nickName);
-        cv.put("sex",bean.sex);
-        cv.put("signature",bean.signature);
-        db.insert(SQLiteHelper.U_USERINFO,null,cv);
+        cv.put("userName", bean.userName);
+        cv.put("nickName", bean.nickName);
+        cv.put("sex", bean.sex);
+        cv.put("signature", bean.signature);
+        db.insert(SQLiteHelper.U_USERINFO, null, cv);
 
     }
     //获取个人资料信息
@@ -59,7 +58,7 @@ public class DBUtils {
         return bean;
     }
     //修改个人资料
-    public void updateUserInfo(String key,String value,String userName){
+    public void updateUserInfo(String key, String value, String userName){
         ContentValues cv = new ContentValues();
         cv.put(key,value);
         db.update(SQLiteHelper.U_USERINFO, cv, "userName=?", new String[]{ userName });
@@ -83,7 +82,7 @@ public class DBUtils {
         cv.put("videoPath", bean.videoPath);
         cv.put("title", bean.title);
         cv.put("secondTitle", bean.secondTitle);
-        db.insert(SQLiteHelper.U_VIDEO_PLAY_LIST,null,cv);
+        db.insert(SQLiteHelper.U_VIDEO_PLAY_LIST, null, cv);
     }
     //判断视频记录是否存在
     public boolean hasVideoPlay (int chapterId, int videoId, String userName){
@@ -108,8 +107,8 @@ public class DBUtils {
     }
     //获取视频记录信息
     public List<VideoBean> getVideoHistory(String userName){
-        String sql = "SELECT * FROM "+ SQLiteHelper.U_VIDEO_PLAY_LIST+" WHERE userName=?";
-        Cursor cursor = db.rawQuery(sql,new String[]{userName});
+        String sql = "SELECT * FROM " + SQLiteHelper.U_VIDEO_PLAY_LIST + " WHERE userName=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{userName});
 
         List<VideoBean> vbl = new ArrayList<VideoBean> ();
 

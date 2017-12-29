@@ -20,7 +20,7 @@ import cn.edu.gdmec.android.boxuegu.R;
 public class VideoPlayActivity extends AppCompatActivity{
     private VideoView videoView;
     private MediaController controller;
-    private String videoPatch;//本地视频地址
+    private String videoPath;//本地视频地址
     private int position;//传递视频详情界面点击的视频位置
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,7 +32,7 @@ public class VideoPlayActivity extends AppCompatActivity{
         //设置此界面为横屏
         setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
         //获取从播放记录界面传递过来的视频地址
-        videoPatch = getIntent ().getStringExtra ( "videoPath" );
+        videoPath = getIntent ().getStringExtra ( "videoPath" );
         position = getIntent ().getIntExtra ( "position", 0 );
         init();
     }
@@ -45,7 +45,7 @@ public class VideoPlayActivity extends AppCompatActivity{
     }
     //播放视频
     private void play(){
-        if (TextUtils.isEmpty ( videoPatch )){
+        if (TextUtils.isEmpty ( videoPath )){
             Toast.makeText ( this, "本地没有此视频，暂无法播放", Toast.LENGTH_SHORT ).show ();
             return;
         }

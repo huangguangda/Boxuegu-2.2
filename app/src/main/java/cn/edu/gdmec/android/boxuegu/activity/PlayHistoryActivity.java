@@ -53,7 +53,7 @@ public class PlayHistoryActivity extends AppCompatActivity {
         lv_list = (ListView) findViewById(R.id.lv_list);
         tv_none = (TextView) findViewById(R.id.tv_none);
         if(vbl.size() == 0){
-            tv_none.setVisibility( View.VISIBLE);
+            tv_none.setVisibility( View.VISIBLE );
         }
         adapter = new PlayHistoryAdapter (this);
         adapter.setData(vbl);
@@ -62,8 +62,6 @@ public class PlayHistoryActivity extends AppCompatActivity {
         tv_back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                PlayHistoryActivity.this.finish();
-
                 PlayHistoryActivity.this.finish();
             }
         });
