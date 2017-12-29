@@ -38,7 +38,7 @@ public class PlayHistoryActivity extends AppCompatActivity {
         setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         db = DBUtils.getInstance(this);
         vbl = new ArrayList<VideoBean> ();
-        vbl = db.getVideoHistory( AnalysisUtils.readLoginUserName(this));
+        vbl = db.getVideoHistory(AnalysisUtils.readLoginUserName(this));
         //从数据库中获取播放记录信息
         init();
     }
