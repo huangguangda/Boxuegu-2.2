@@ -16,6 +16,38 @@
 #   public *;
 #}
 
+-optimizationpasses 5 #压缩级别
+-dontusemixedcaseclassnames #大小写混合
+-dontpreverify #混淆日志
+-verbose #混淆日志
+
+#混淆的算法
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.app.BroadcastReceiver
+-keep public class * extends android.app.ContentProvider
+-keep public class * extends android.app.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-keepclasseswithmembernames class *{#保持native方法不会被混淆
+    native <methods>;
+    }
+-keepclasseswithmembers class *{#保持自定义属性不被混淆
+    public <init>(android.content.Context,android.util.AttributeSet, int);
+    }
+-keepclassmembernames class * extends android.app.Activity{#保持自定义view不被混淆
+    public void *(android.view.View);
+    }
+-keepclassmembers enum * {#防止enum类别混淆
+    public static **[] values();
+     public static ** valuesOf(java.lang.String);
+    }
+-keep class * implements android.os.Parcelable{#保持parcelable不被混淆
+    public static final android.os.Parcelable$Creator *;
+    }
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable

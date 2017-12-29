@@ -35,11 +35,11 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     private RelativeLayout rl_sex;
     private RelativeLayout rl_nickName;
     private RelativeLayout rl_signature;
-
     private RelativeLayout rl_title_bar;
-    private String spUserName;
+    private static final int CHANGE_NICKNAME = 1;//修改昵称的自定义常理
+    private static final int CHANGE_SIGNATURE = 2;//修改个性签名的自定义常理
 
-    private String sex;
+    private String spUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +123,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                 bdName.putString ( "title", "昵称" );
                 bdName.putInt ( "flag", 1 );//flag传递1时表示是修改昵称
                 enterActivityForResult(ChangeUserInfoActivity.class,
-                        CHANG_NICKNAME, bdName);//跳到个人资料修改界面
+                        CHANGE_NICKNAME, bdName);//跳到个人资料修改界面
 
                 break;
             case R.id.rl_sex:   //性别的点击事件

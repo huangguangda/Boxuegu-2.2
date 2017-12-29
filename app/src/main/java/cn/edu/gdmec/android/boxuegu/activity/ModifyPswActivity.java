@@ -58,8 +58,8 @@ public class ModifyPswActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show ();
                     return;
                 }else if (!MD5Utils.md5 ( originalPsw ).equals ( readPsw() )){
-                    Toast.makeText ( ModifyPswActivity.this, "输入的密码与原始密码不一致"，
-                    Toast.LENGTH_SHORT).show ();
+                    Toast.makeText ( ModifyPswActivity.this, "输入的密码与原始密码不一致",
+                            Toast.LENGTH_SHORT).show ();
                     return;
                 }else if (MD5Utils.md5 ( newPsw ).equals ( readPsw() )){
                     Toast.makeText ( ModifyPswActivity.this, "输入的新密码与原始密码不能一致",

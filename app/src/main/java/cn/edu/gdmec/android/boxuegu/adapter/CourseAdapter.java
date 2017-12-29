@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.activity.VideoListActivity;
 import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
 
 /**
@@ -49,9 +50,9 @@ public class CourseAdapter extends BaseAdapter{
     //convertView参数就是滚出屏幕的Item的View
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        final ExercisesAdapter.ViewHolder vh;
+        final ViewHolder vh;
         if (convertView == null){
-            vh = new ExercisesAdapter.ViewHolder ();
+            vh = new ViewHolder ();
             convertView =LayoutInflater.from ( mContext ).inflate (
                     R.layout.course_list_item, null
             );
@@ -59,7 +60,7 @@ public class CourseAdapter extends BaseAdapter{
                     .findViewById ( R.id.iv_left_img );
             vh.iv_right_img = (ImageView) convertView
                     .findViewById ( R.id.iv_right_img );
-            vh.tv_legt_img_title = (TextView) convertView
+            vh.tv_left_img_title = (TextView) convertView
                     .findViewById ( R.id.tv_left_img_title );
             vh.tv_left_title = (TextView) convertView
                     .findViewById ( R.id.tv_left_title );
@@ -70,7 +71,7 @@ public class CourseAdapter extends BaseAdapter{
             convertView.setTag ( vh );
         }else {
             //复用convertView
-            vh = (ExercisesAdapter.ViewHolder) convertView.getTag ();
+            vh = (ViewHolder) convertView.getTag ();
         }
         final List<CourseBean> list = getItem ( position );
         if (list != null){

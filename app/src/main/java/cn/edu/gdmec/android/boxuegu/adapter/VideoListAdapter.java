@@ -2,7 +2,6 @@ package cn.edu.gdmec.android.boxuegu.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,16 +17,18 @@ import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 /**
  * Created by Jack on 2017/12/27.
  */
+
 public class VideoListAdapter extends BaseAdapter{
     private Context mContext;
     private List<VideoBean> vbl;//视频列表数据
     private int selectedPosition = -1;//点击时选中的位置
-    private ExercisesDetailAdapter.OnSelectListener onSelectListener;
+    private OnSelectListener onSelectListener;
 
-    public VideoListAdapter(Context context, ExercisesDetailAdapter.OnSelectListener onSelectListener){
+    public VideoListAdapter(Context context, OnSelectListener onSelectListener) {
         this.mContext = context;
         this.onSelectListener = onSelectListener;
     }
+
     public void setSelectedPosition(int position){
         selectedPosition = position;
     }
@@ -56,15 +57,15 @@ public class VideoListAdapter extends BaseAdapter{
     //convertView参数就是滚出屏幕的Item的View
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
-        final ExercisesAdapter.ViewHolder vh;
+        final ViewHolder vh;
         if (convertView == null){
-            vh = new ExercisesAdapter.ViewHolder ();
+            vh =new ViewHolder ();
             convertView =LayoutInflater.from ( mContext ).inflate ( R.layout.video_list_item, null );
             vh.tv_title = (TextView) convertView.findViewById ( R.id.tv_video_title );
             vh.iv_icon = (ImageView) convertView.findViewById ( R.id.iv_left_icon );
             convertView.setTag ( vh );
         }else {
-            vh = (ExercisesAdapter.ViewHolder) convertView.getTag ();
+            vh = (ViewHolder) convertView.getTag ();
         }
         final VideoBean bean = getItem ( position );
         vh.iv_icon.setImageResource(R.drawable.course_bar_icon);

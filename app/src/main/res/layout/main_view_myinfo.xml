@@ -33,7 +33,6 @@
             android:layout_height="1dp"
             android:background="#E3E3E3"
             android:layout_marginTop="20dp">
-
         </View>
         <RelativeLayout
             android:id="@+id/rl_course_history"
@@ -50,7 +49,6 @@
                 android:layout_marginLeft="25dp"
                 android:src="@drawable/course_history_icon"
                 android:layout_centerVertical="true"/>
-
             <TextView
                 android:id="@+id/tv_course_history"
                 android:textSize="16sp"
@@ -61,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="#A3A3A3"
                 android:text="播放记录"/>
-
             <ImageView
                 android:src="@drawable/iv_right_arrow"
                 android:layout_marginRight="25dp"
@@ -94,7 +91,6 @@
             android:layout_centerVertical="true"/>
 
         <TextView
-
             android:textSize="16sp"
             android:layout_marginLeft="25dp"
             android:layout_centerVertical="true"
@@ -113,12 +109,8 @@
             android:layout_height="15dp"/>
     </RelativeLayout>
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="#E3E3E3"/>
-
-
-
 </LinearLayout>

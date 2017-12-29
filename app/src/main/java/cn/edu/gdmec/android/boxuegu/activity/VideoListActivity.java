@@ -66,13 +66,15 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
         lv_video_list = (ListView) findViewById ( R.id.lv_video_list );
         tv_chapter_intro = (TextView) findViewById ( R.id.tv_chapter_intro );
         sv_chapter_intro = (ScrollView) findViewById ( R.id.sv_chapter_intro );
-        adapter = new VideoListAdapter ( this, new VideoListAdapter.OnSelectListener (){
+
+        adapter = new VideoListAdapter (this, new VideoListAdapter.OnSelectListener (){
             @Override
             public void onSelect(int position, ImageView iv){
                 adapter.setSelectedPosition ( position );//设置适配器的选中项
                 VideoBean bean = videoList.get ( position );
                 String videoPath = bean.videoPath;
                 adapter.notifyDataSetChanged ();//更新列表框
+
                 if (TextUtils.isEmpty ( videoPath )){
                     Toast.makeText ( VideoListActivity.this,
                             "本地没有此竖屏，暂无法播放", Toast.LENGTH_SHORT).show ();
@@ -90,7 +92,7 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
                     startActivityForResult(intent,1);
                 }
             }
-        } );
+        });
         lv_video_list.setAdapter ( adapter );
         tv_intro.setOnClickListener ( this );
         tv_video.setOnClickListener ( this );
@@ -200,7 +202,7 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
             tv_intro.setBackgroundColor ( Color.parseColor ( "#FFFFFF" ) );
             tv_video.setBackgroundColor ( Color.parseColor ( "#30B4FF" ) );
             tv_intro.setTextColor ( Color.parseColor ( "#000000" ) );
-            tv_video.setTextColor ( Color.parseColor ( "#FFFFFF" ) )
+            tv_video.setTextColor ( Color.parseColor ( "#FFFFFF" ) );
         }
     }
 }

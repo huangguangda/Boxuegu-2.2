@@ -1,7 +1,5 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +12,7 @@ import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
 import cn.edu.gdmec.android.boxuegu.fragment.AdBannerFragment;
+import cn.edu.gdmec.android.boxuegu.view.CourseView;
 
 /**
  * Created by Jack on 2017/12/27.
@@ -54,7 +53,7 @@ public class AdBannerAdapter extends FragmentStatePagerAdapter implements View.O
     @Override
     public int getItemPosition(Object object){
         //防止刷新结果显示列表的时候出现缓存数据，重载这个函数 使之默认范湖POSITION_NONE
-        return POSITION_NONE；
+        return POSITION_NONE;
     }
     @Override
     public boolean onTouch(View v, MotionEvent event){

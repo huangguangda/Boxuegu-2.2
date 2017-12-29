@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.activity.VideoPlayActivity;
 import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 
 /**
@@ -49,10 +50,10 @@ public class PlayHistoryAdapter extends BaseAdapter{
     //convertView参数就是滚出屏幕的Item的View
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
-        final ExercisesAdapter.ViewHolder vh;
+        final ViewHolder vh;
         //final ViewHolder vh;
         if (convertView == null){
-            vh = new ExercisesAdapter.ViewHolder ();
+            vh = new ViewHolder ();
             convertView =LayoutInflater.from ( mContext ).inflate (
                     R.layout.play_history_list_item, null
             );
@@ -61,7 +62,7 @@ public class PlayHistoryAdapter extends BaseAdapter{
             vh.iv_icon = (ImageView) convertView.findViewById ( R.id.iv_video_icon );
             convertView.setTag ( vh );
         }else {
-            vh = (ExercisesAdapter.ViewHolder) convertView.getTag ();
+            vh = (ViewHolder) convertView.getTag ();
         }
         final VideoBean bean = getItem ( position );
         if (bean != null){

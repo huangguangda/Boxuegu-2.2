@@ -25,13 +25,15 @@ import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 /**
  * Created by Jack on 2017/12/28.
  */
-
+//4.42课程界面管理类
 public class CourseView {
     private ListView lv_list;
     private CourseAdapter adapter;
     private List<List<CourseBean>> cbl;
+
     private FragmentActivity mContext;
     private LayoutInflater mInflater;
+
     private View mCurrentView;
     private ViewPager adPager;//广告
     private View adBannerLay;//广告条容器
@@ -40,12 +42,14 @@ public class CourseView {
     private ViewPagerIndicator vpi;//小圆点
     private MHandler mHandler;//事件捕获
     private List<CourseBean> cadl;
+
     public CourseView(FragmentActivity context){
         mContext = context;
         //为之后将Layout转化为view时用
         mInflater = LayoutInflater.from ( mContext );
     }
     private void createView(){
+
         mHandler = new MHandler();
         initAdData();
         getCourseData();
