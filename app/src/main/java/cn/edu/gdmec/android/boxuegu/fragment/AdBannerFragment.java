@@ -33,6 +33,7 @@ public class AdBannerFragment extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated ( savedInstanceState );
     }
+
     @Override
     public void onResume(){
         super.onResume ();
