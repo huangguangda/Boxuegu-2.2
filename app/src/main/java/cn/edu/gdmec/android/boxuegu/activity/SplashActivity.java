@@ -37,6 +37,7 @@ public class SplashActivity extends AppCompatActivity{
             e.printStackTrace ();
             tv_version.setText ( "V" );
         }
+
         //利用Timer让此界面延迟3秒后再跳转，timer中有一个线层，这个线层不断执行task
         Timer timer = new Timer (  );
         //timertask 实现runnable接口，TimerTask类表示一个在指定时间内执行的task
