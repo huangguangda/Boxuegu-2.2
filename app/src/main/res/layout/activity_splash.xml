@@ -12,3 +12,8 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"/>
 </RelativeLayout>
+<!--通过RelativeLayout布局的android:background属性，
+将布局文件设置成欢迎图片，在布局中放置一个TextView
+用于显示版本号信息，通过
+android:layout_centerInParent="true"
+属性将TextView置于父控件的中心位置。-->
