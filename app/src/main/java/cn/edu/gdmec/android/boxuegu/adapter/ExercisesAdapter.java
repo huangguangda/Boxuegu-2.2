@@ -15,72 +15,73 @@ import cn.edu.gdmec.android.boxuegu.activity.ExercisesDetailActivity;
 import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
 
 /**
- * Created by Jack on 2017/12/26.
+ * Created by student on 17/12/25.
  */
 
-public class ExercisesAdapter extends BaseAdapter {
+public class ExercisesAdapter extends BaseAdapter{
     private Context mContext;
     private List<ExercisesBean> ebl;
     public ExercisesAdapter(Context context){
-        this.mContext = context;
+        this.mContext=context;
     }
     public void setData(List<ExercisesBean> ebl){
         this.ebl = ebl;
         notifyDataSetChanged();
     }
-
     @Override
     public int getCount() {
         return ebl == null ? 0 : ebl.size();
     }
 
-    /*@Override
-    public Object getItem(int i) {
-        return null;
-    }*/
     @Override
-    public ExercisesBean getItem(int position){
-        return ebl == null ? null : ebl.get(position);
+    public ExercisesBean getItem(int i) {
+        return ebl == null ? null : ebl.get(i);
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public long getItemId(int i) {
+        return i;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder vh;
-        if (convertView == null){
-            vh =new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.exercises_list_item,null);
-            vh.title = (TextView)convertView.findViewById(R.id.tv_title);
-            vh.content = (TextView)convertView.findViewById(R.id.tv_content);
-            vh.order = (TextView)convertView.findViewById(R.id.tv_order);
-            convertView.setTag(vh);
+        if (view == null){
+            vh = new ViewHolder();
+            view = LayoutInflater.from(mContext).inflate(
+                    R.layout.exercises_list_item,null
+            );
+            vh.title = (TextView) view.findViewById(R.id.tv_title);
+            vh.content = (TextView) view.findViewById(R.id.tv_content);
+            vh.order = (TextView) view.findViewById(R.id.tv_order);
+            view.setTag(vh);
         }else{
-            vh = (ViewHolder)convertView.getTag();
+            vh=(ViewHolder) view.getTag();
         }
-        final ExercisesBean bean = getItem(position);
+        final ExercisesBean bean = getItem(i);
         if (bean!=null){
-            vh.order.setText(position+1+"");
+            vh.order.setText(i+1+"");
             vh.title.setText(bean.title);
             vh.content.setText(bean.content);
             vh.order.setBackgroundResource(bean.background);
         }
-        convertView.setOnClickListener(new View.OnClickListener(){
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if (bean == null)
                     return;
-                Intent intent = new Intent(mContext, ExercisesDetailActivity.class);
+                Intent intent = new Intent(
+                        mContext, ExercisesDetailActivity.class
+                );
                 intent.putExtra("id",bean.id);
+                intent.putExtra("title",bean.title);
                 mContext.startActivity(intent);
             }
         });
-        return convertView;
+        return view;
     }
-    class ViewHolder{
+
+    class ViewHolder {
         public TextView title,content;
         public TextView order;
     }

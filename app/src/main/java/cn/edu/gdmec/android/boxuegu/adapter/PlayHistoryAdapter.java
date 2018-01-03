@@ -16,55 +16,53 @@ import cn.edu.gdmec.android.boxuegu.activity.VideoPlayActivity;
 import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 
 /**
- * Created by Jack on 2017/12/27.
+ * Created by student on 17/12/27.
  */
 
-public class PlayHistoryAdapter extends BaseAdapter{
+public class PlayHistoryAdapter extends BaseAdapter {
     private Context mContext;
     private List<VideoBean> vbl;
     public PlayHistoryAdapter(Context context){
         this.mContext = context;
     }
-    //设置数据更新界面
+
     public void setData(List<VideoBean> vbl){
         this.vbl = vbl;
-        notifyDataSetChanged ();
+        notifyDataSetChanged();
     }
-    //获取Item的总数
+
     @Override
-    public int getCount(){
-        return vbl == null ? 0 : vbl.size ();
+    public int getCount() {
+        return vbl == null ? 0 : vbl.size();
     }
-    //根据position得到对应Item的对象
+
     @Override
-    public VideoBean getItem(int position){
-        return vbl == null ? null : vbl.get ( position );
+    public VideoBean getItem(int i) {
+        return vbl == null ? null : vbl.get(i);
     }
-    //根据position得到对应Item的id
+
     @Override
-    public long getItemId(int position){
-        return position;
+    public long getItemId(int i) {
+        return i;
     }
-    //得到相应position对应的Item视图
-    //position是当前Item的位置
-    //convertView参数就是滚出屏幕的Item的View
+
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent){
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         final ViewHolder vh;
-        if (convertView == null){
-            vh = new ViewHolder ();
-            convertView =LayoutInflater.from ( mContext ).inflate (
-                    R.layout.play_history_list_item, null
+        if (view == null){
+            vh = new ViewHolder();
+            view = LayoutInflater.from(mContext).inflate(
+                    R.layout.play_history_list_item,null
             );
-            vh.tv_title = (TextView) convertView.findViewById ( R.id.tv_adapter_title );
-            vh.tv_video_title = (TextView) convertView.findViewById ( R.id.tv_video_title );
-            vh.iv_icon = (ImageView) convertView.findViewById ( R.id.iv_video_icon );
-            convertView.setTag ( vh );
-        }else {
-            vh = (ViewHolder) convertView.getTag ();
+            vh.tv_title = (TextView) view.findViewById(R.id.tv_adapter_title);
+            vh.tv_video_title = (TextView) view.findViewById(R.id.tv_video_title);
+            vh.iv_icon = (ImageView) view.findViewById(R.id.iv_video_icon);
+            view.setTag(vh);
+        }else{
+            vh = (ViewHolder) view.getTag();
         }
-        final VideoBean bean = getItem ( position );
-        if (bean != null){
+        final VideoBean bean = getItem(i);
+        if (bean!=null){
             vh.tv_title.setText(bean.title);
             vh.tv_video_title.setText(bean.secondTitle);
             switch (bean.chapterId){
@@ -103,20 +101,20 @@ public class PlayHistoryAdapter extends BaseAdapter{
                     break;
             }
         }
-        convertView.setOnClickListener ( new View.OnClickListener () {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (bean == null) return;
-                //跳转到播放视频界面
-                Intent intent = new Intent ( mContext, VideoPlayActivity.class );
-                intent.putExtra("videoPath", bean.videoPath);
-                mContext.startActivity ( intent );
+            public void onClick(View view) {
+                if (bean==null) return;
+                Intent intent = new Intent(mContext, VideoPlayActivity.class);
+                intent.putExtra("videoPath",bean.videoPath);
+                mContext.startActivity(intent);
             }
-        } );
-        return convertView;
+        });
+        return view;
     }
     class ViewHolder{
         public TextView tv_title,tv_video_title;
         public ImageView iv_icon;
+
     }
 }
