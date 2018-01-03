@@ -18,6 +18,7 @@ import cn.edu.gdmec.android.boxuegu.utils.MD5Utils;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
     private TextView tv_main_title;
     private TextView tv_back;
     private RelativeLayout rl_title_bar;
