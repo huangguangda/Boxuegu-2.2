@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="cn.edu.gdmec.android.boxuegu">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-feature android:name="android.hardware.Camera"
+                  android:required="false"/>
     <!--android:icon="@mipmap/app_icon"
     项目创建后所有的界面需要使用蓝色标题栏，因此需要在<application>标签中修改theme属性
     去掉标题栏
@@ -34,6 +40,9 @@
         <activity android:name=".activity.PlayHistoryActivity"/>
         <activity android:name=".activity.VideoListActivity"/>
         <activity android:name=".activity.VideoPlayActivity"/>
+        <activity android:name=".activity.HeadActivity"/>
+
+
     </application>
 
 </manifest>

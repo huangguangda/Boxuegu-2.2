@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.boxuegu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.ExercisesDetailActivity;
+import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
 import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
 
 /**
@@ -70,15 +72,32 @@ public class ExercisesAdapter extends BaseAdapter{
             public void onClick(View view) {
                 if (bean == null)
                     return;
-                Intent intent = new Intent(
+
+                /*Intent intent = new Intent(
                         mContext, ExercisesDetailActivity.class
                 );
                 intent.putExtra("id",bean.id);
                 intent.putExtra("title",bean.title);
-                mContext.startActivity(intent);
+                mContext.startActivity(intent);*/
+                if(readLoginStatus()){
+              Intent intent = new Intent( mContext, ExercisesDetailActivity.class );
+                    intent.putExtra("id",bean.id);
+                    intent.putExtra("title",bean.title);
+                    mContext.startActivity(intent);
+                }else{
+                    Intent intent = new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                }
+
             }
         });
         return view;
+    }
+
+    private boolean readLoginStatus() {
+        SharedPreferences sp = mContext.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
+        boolean isLogin = sp.getBoolean("isLogin",false);
+        return isLogin;
     }
 
     class ViewHolder {

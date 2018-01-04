@@ -30,6 +30,7 @@
             android:src="@drawable/default_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"/>
+
     </RelativeLayout>
 
     <View android:layout_width="fill_parent"

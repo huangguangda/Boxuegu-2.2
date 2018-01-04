@@ -27,9 +27,10 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
     private RelativeLayout rl_title_bar;
     private TextView tv_back;
     private String title,content;
-    private int flag;
+    private int flag;//flag为1时表示修改昵称，2位表示修改签名
     private EditText et_content;
     private ImageView iv_delete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,9 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
     private void init() {
         title = getIntent().getStringExtra("title");
         content = getIntent().getStringExtra("content");
+
         flag = getIntent().getIntExtra("flag",0);
+
         tv_main_title = (TextView)findViewById(R.id.tv_main_title);
         tv_main_title.setText(title);
         rl_title_bar = (RelativeLayout) findViewById(R.id.title_bar);
@@ -51,11 +54,14 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
         tv_save.setVisibility(View.VISIBLE);
         et_content = (EditText)findViewById(R.id.et_content);
         iv_delete = (ImageView)findViewById(R.id.iv_delete);
+
         if (!TextUtils.isEmpty(content)){
             et_content.setText(content);
             et_content.setSelection(content.length());
         }
         contentListener();
+
+
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +80,7 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
                 Intent data = new Intent();
                 String etContent = et_content.getText().toString().trim();
                 switch (flag){
+
                     case 1:
                         if (!TextUtils.isEmpty(etContent)){
                             data.putExtra("nickName",etContent);
@@ -96,6 +103,7 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
 
                         }
                         break;
+
 
                 }
             }
