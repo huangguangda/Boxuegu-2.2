@@ -26,20 +26,22 @@ public class ExercisesAdapter extends BaseAdapter{
     public ExercisesAdapter(Context context){
         this.mContext=context;
     }
+    //设置数据更新界面
     public void setData(List<ExercisesBean> ebl){
         this.ebl = ebl;
         notifyDataSetChanged();
     }
+    //获取Item的总数
     @Override
     public int getCount() {
         return ebl == null ? 0 : ebl.size();
     }
-
+    //根据position  i 得到的Item的对象
     @Override
     public ExercisesBean getItem(int i) {
         return ebl == null ? null : ebl.get(i);
     }
-
+    //根据
     @Override
     public long getItemId(int i) {
         return i;
@@ -72,6 +74,7 @@ public class ExercisesAdapter extends BaseAdapter{
             public void onClick(View view) {
                 if (bean == null)
                     return;
+                //跳转到习题详情页面
 
                 /*Intent intent = new Intent(
                         mContext, ExercisesDetailActivity.class

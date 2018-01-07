@@ -38,6 +38,7 @@
                 android:text="Android 基础入门"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"/>
+
         </RelativeLayout>
         <TextView
             android:id="@+id/tv_left_title"

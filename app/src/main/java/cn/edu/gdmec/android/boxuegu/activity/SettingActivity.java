@@ -39,12 +39,18 @@ public class SettingActivity extends AppCompatActivity {
     private void init() {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         tv_main_title.setText("设置");
+
         tv_back = (TextView) findViewById(R.id.tv_back);
+
         rl_title_bar = (RelativeLayout) findViewById(R.id.title_bar);
         rl_title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
+
         rl_modify_psw = (RelativeLayout) findViewById(R.id.rl_modiy_psw);
+
         rl_security_setting = (RelativeLayout) findViewById(R.id.rl_security_setting);
+
         rl_exit_login = (RelativeLayout) findViewById(R.id.rl_exit_login);
+
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

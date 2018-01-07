@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:background="@android:color/white">
-
+<!--练习界面布局 -->
     <ListView
         android:id="@+id/lv_list"
         android:layout_width="fill_parent"

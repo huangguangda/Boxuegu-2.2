@@ -68,13 +68,14 @@ public class AnalysisUtils {
         return exercisesInfos;
 
     }
+    //设置A,B,C,D选项可点击
     public static void setABCDEnable(boolean value, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d){
         iv_a.setEnabled(value);
         iv_b.setEnabled(value);
         iv_c.setEnabled(value);
         iv_d.setEnabled(value);
     }
-
+//解析每章的课程视频信息
     public static List<List<CourseBean>> getCourseInfos(InputStream is) throws Exception{
         XmlPullParser parser = Xml.newPullParser();
         parser.setInput(is,"utf-8");
@@ -108,7 +109,7 @@ public class AnalysisUtils {
                     if ("course".equals(parser.getName())){
                         count++;
                         courseList.add(courseInfo);
-                        if (count%2==0) {
+                        if (count%2==0) {//课程界面每一个数据一组放在List集合中
                             courseInfos.add(courseList);
                             courseList = null;
                             courseList = new ArrayList<CourseBean>();
@@ -120,6 +121,7 @@ public class AnalysisUtils {
         }
         return courseInfos;
     }
+    //从SharePreferences中读取登录用户名
     public static String readLoginUserName(Context context){
         SharedPreferences sp = context.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
         String userName=sp.getString("loginUserName","");

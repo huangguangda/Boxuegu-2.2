@@ -86,6 +86,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
             AnalysisUtils.setABCDEnable(false,vh.iv_a,vh.iv_b,vh.iv_c,vh.iv_d);
             switch (bean.select){
                 case 0:
+                    //用户所选项是正确的
                     if (bean.answer==1){
                         vh.iv_a.setImageResource(R.drawable.exercises_right_icon);
                         vh.iv_b.setImageResource(R.drawable.exercises_b);
@@ -109,6 +110,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                     }
                     break;
                 case 1:
+                    //A错了
                     vh.iv_a.setImageResource(R.drawable.exercises_error_icon);
                     if (bean.answer==2){
                         vh.iv_b.setImageResource(R.drawable.exercises_right_icon);
@@ -173,9 +175,11 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                     break;
             }
         }
+        //当用户名点击A选项的点击事件
         vh.iv_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //判断selectedPosition中是否包含此时的position
                 if (selectedPosition.contains(""+i)){
                     selectedPosition.remove(""+i);
                 }else{

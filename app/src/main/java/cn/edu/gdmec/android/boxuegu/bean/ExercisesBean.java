@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.boxuegu.bean;
 
 /**
  * Created by Jack on 2017/12/26.
+ * 练习实体类
  */
 
 public class ExercisesBean {

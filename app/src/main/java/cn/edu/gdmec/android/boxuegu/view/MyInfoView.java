@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
@@ -31,6 +37,8 @@ public class MyInfoView {
     private Activity mContext;
     private LayoutInflater mInflater;
     private View mCurrentView;
+
+    private static String path = "/sdcard/myHead/";
     public MyInfoView(Activity context){
         mContext= context;
         mInflater= LayoutInflater.from(mContext);
@@ -88,6 +96,17 @@ public class MyInfoView {
     public void setLoginParams(boolean isLogin){
         if (isLogin){
             tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
+            File file = new File (path);
+            if (file.exists()){
+                Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");
+                iv_head_icon.setImageBitmap(bt);
+                if (bt != null) {
+                    Drawable drawable = new BitmapDrawable (bt);// 转换成drawable
+                    iv_head_icon.setImageDrawable(drawable);
+                } else {
+
+                }
+            }
         }
         else{
             tv_user_name.setText("点击登录");

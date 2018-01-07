@@ -3,7 +3,7 @@ package cn.edu.gdmec.android.boxuegu.bean;
 /**
  * Created by Jack on 2017/12/26.
  */
-//视频信息
+//视频信息课程实体类
 public class CourseBean {
     public int id; //每章节id
     public String imgTitle;//图片上的标题
