@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void createView(int viewIndex) {
         switch (viewIndex){
             case 0:
+                //课程界面
                 if (mCourseView == null){
                     mCourseView = new CourseView(this);
                     mBodyLayout.addView(mCourseView.getView());
@@ -188,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mCourseView.showView();
                 break;
             case 1:
+                //习题界面
                 if (mExerciseView == null){
                     mExerciseView = new ExercisesView(this);
                     mBodyLayout.addView(mExerciseView.getView());
@@ -197,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mExerciseView.showView();
                 break;
             case 2:
+                //我的界面
                 if (mMyInfoView == null){
                     mMyInfoView = new MyInfoView(this);
                     mBodyLayout.addView(mMyInfoView.getView());
@@ -212,8 +215,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data!=null){
+            //设置界面或登录界面传递过来的登录状态
             boolean isLogin = data.getBooleanExtra("isLogin",false);
-            if (isLogin){
+            if (isLogin){//登录成功时显示课程界面
                 clearBottomImageState();
                 selectDisplayView(0);
             }
@@ -223,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected long exitTime;
+    protected long exitTime;//记录第一次点击的时间
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -244,12 +248,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //获取登录状态
     private boolean readLoginStatus() {
         SharedPreferences sp = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         boolean isLogin = sp.getBoolean("isLogin",false);
         return isLogin;
     }
 
+    //清除状态
     private void clearLoginStatus() {
         SharedPreferences sp = getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
