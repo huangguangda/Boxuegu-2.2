@@ -26,12 +26,14 @@ public class ExercisesView {
     private View mCurrentView;
     public ExercisesView(Activity context){
         mContext = context;
+        //为之后将Layout转化为view时用
         mInflater = LayoutInflater.from(mContext);
     }
     private void createView(){
         initView();
     }
 
+    //初始化控件
     private void initView() {
         mCurrentView = mInflater.inflate(R.layout.main_view_exercises,null);
         lv_list = (ListView) mCurrentView.findViewById(R.id.lv_list);
@@ -41,6 +43,7 @@ public class ExercisesView {
         lv_list.setAdapter(adapter);
     }
 
+    //设置数据
     private void initData() {
         ebl = new ArrayList<ExercisesBean>();
         for (int i=0;i<10;i++){
@@ -103,12 +106,14 @@ public class ExercisesView {
             ebl.add(bean);
         }
     }
+    //获取当前在导航栏上方显示对应的View
     public View getView(){
         if (mCurrentView==null){
             createView();
         }
         return mCurrentView;
     }
+    //
     public void showView(){
         if (mCurrentView==null){
             createView();

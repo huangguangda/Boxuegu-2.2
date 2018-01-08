@@ -81,7 +81,7 @@ public class ExercisesDetailActivity extends AppCompatActivity{
         adapter = new ExercisesDetailAdapter(ExercisesDetailActivity.this, new ExercisesDetailAdapter.OnSelectListener() {
             @Override
             public void onSelectA(int position, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d) {
-                //
+                //判断如果答案不是1即A选项
                 if (ebl.get(position).answer!=1){
                     ebl.get(position).select=1;
                 }else{
@@ -110,6 +110,7 @@ public class ExercisesDetailActivity extends AppCompatActivity{
 
             @Override
             public void onSelectB(int position, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d) {
+
                 if (ebl.get(position).answer!=2){
                     ebl.get(position).select=2;
                 }else{

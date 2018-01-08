@@ -29,6 +29,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
     }
@@ -36,13 +37,16 @@ public class SplashActivity extends AppCompatActivity {
     private void init() {
         tv_version=(TextView) findViewById(R.id.tv_version);
         try {
+            //获取程序包信息
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(),0);
             tv_version.setText("v"+info.versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             tv_version.setText("v");
         }
+        //利用Timer让此界面延迟3秒后再跳转，timer中一个线程，这个线程不断执行Task
         Timer timer = new Timer();
+        //timertask 实现 runnable，timerTask类表示一个在指定时间内执行的task
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
@@ -51,7 +55,6 @@ public class SplashActivity extends AppCompatActivity {
                 SplashActivity.this.finish();
             }
         };
-        timer.schedule(task,3000);
-
+        timer.schedule(task,3000);//设置这个task在延迟三秒之后自动执行
     }
 }
