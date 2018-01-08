@@ -110,7 +110,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                     }
                     break;
                 case 1:
-                    //A错了
+                    //用户所选项A是错误的
                     vh.iv_a.setImageResource(R.drawable.exercises_error_icon);
                     if (bean.answer==2){
                         vh.iv_b.setImageResource(R.drawable.exercises_right_icon);
@@ -126,6 +126,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                         vh.iv_d.setImageResource(R.drawable.exercises_right_icon);
                     }break;
                 case 2:
+                    //用户所选项目B是错误的
                     vh.iv_b.setImageResource(R.drawable.exercises_error_icon);
                     if (bean.answer==1){
                         vh.iv_a.setImageResource(R.drawable.exercises_right_icon);
@@ -141,6 +142,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                         vh.iv_d.setImageResource(R.drawable.exercises_right_icon);
                     }break;
                 case 3:
+                    //用户所选C是错误的
                     vh.iv_c.setImageResource(R.drawable.exercises_error_icon);
                     if (bean.answer==1){
                         vh.iv_a.setImageResource(R.drawable.exercises_right_icon);
@@ -157,6 +159,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                     }break;
 
                 case 4:
+                    //用户所选项D是错误的
                     vh.iv_d.setImageResource(R.drawable.exercises_error_icon);
                     if (bean.answer==1){
                         vh.iv_a.setImageResource(R.drawable.exercises_right_icon);
@@ -188,6 +191,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                 onSelectListener.onSelectA(i,vh.iv_a,vh.iv_b,vh.iv_c,vh.iv_d);
             }
         });
+        //当用户点击B选项的点击事件
         vh.iv_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -199,6 +203,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                 onSelectListener.onSelectB(i,vh.iv_a,vh.iv_b,vh.iv_c,vh.iv_d);
             }
         });
+        //当用户点击C选项的点击事件
         vh.iv_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -210,6 +215,7 @@ public class ExercisesDetailAdapter extends BaseAdapter{
                 onSelectListener.onSelectC(i,vh.iv_a,vh.iv_b,vh.iv_c,vh.iv_d);
             }
         });
+        //当用户点击D选项的点击事件
         vh.iv_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

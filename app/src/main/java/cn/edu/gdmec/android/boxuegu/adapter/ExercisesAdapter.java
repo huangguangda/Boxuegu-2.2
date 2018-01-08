@@ -50,6 +50,7 @@ public class ExercisesAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder vh;
+        //复用convertView
         if (view == null){
             vh = new ViewHolder();
             view = LayoutInflater.from(mContext).inflate(
@@ -62,6 +63,8 @@ public class ExercisesAdapter extends BaseAdapter{
         }else{
             vh=(ViewHolder) view.getTag();
         }
+
+        //获取 i 对应的Item的数据对象
         final ExercisesBean bean = getItem(i);
         if (bean!=null){
             vh.order.setText(i+1+"");
@@ -69,6 +72,8 @@ public class ExercisesAdapter extends BaseAdapter{
             vh.content.setText(bean.content);
             vh.order.setBackgroundResource(bean.background);
         }
+        //convertView每个Item的点击事件
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +87,7 @@ public class ExercisesAdapter extends BaseAdapter{
                 intent.putExtra("id",bean.id);
                 intent.putExtra("title",bean.title);
                 mContext.startActivity(intent);*/
+
                 if(readLoginStatus()){
               Intent intent = new Intent( mContext, ExercisesDetailActivity.class );
                     intent.putExtra("id",bean.id);

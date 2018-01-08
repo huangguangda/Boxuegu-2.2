@@ -36,6 +36,7 @@ public class ExercisesDetailActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_detail);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         id=getIntent().getIntExtra("id",0);
         title = getIntent().getStringExtra("title");
