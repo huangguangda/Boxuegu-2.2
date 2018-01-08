@@ -87,14 +87,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         switch (v.getId()){
+            //课堂的点击事件
             case R.id.bottom_bar_course_btn:
                 clearBottomImageState();
                 selectDisplayView(0);
                 break;
+            //习题的点击事件
             case R.id.bottom_bar_exercises_btn:
                 clearBottomImageState();
                 selectDisplayView(1);
                 break;
+            //我的点击事件
             case R.id.bottom_bar_myinfo_btn:
                 clearBottomImageState();
                 selectDisplayView(2);
@@ -106,12 +109,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    //设置底部三个按钮的点击监听事件
     private void setListener() {
         for (int i = 0; i < mBottomLayout.getChildCount();i++){
             mBottomLayout.getChildAt(i).setOnClickListener(this);
         }
     }
 
+    //清除底部按钮的选中状态
     private void clearBottomImageState() {
         tv_course.setTextColor(Color.parseColor("#666666"));
         tv_exercises.setTextColor(Color.parseColor("#666666"));
@@ -124,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //设置底部按钮选中状态
     public void setSelectedStatus(int index){
         switch (index){
             case 0:
@@ -147,12 +153,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 rl_title_bar.setVisibility(View.GONE);
         }
     }
+    //移除不需要的视图
     private void removeAllView(){
         for (int i = 0;i<mBodyLayout.getChildCount();i++){
             mBodyLayout.getChildAt(i).setVisibility(View.GONE);
         }
     }
 
+    //设置界面view的初始化状态
     private void setInitStatus() {
         clearBottomImageState();
         setSelectedStatus(0);
@@ -160,12 +168,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //显示对应的页面
     private void selectDisplayView(int index) {
         removeAllView();
         createView(index);
         setSelectedStatus(index);
     }
 
+    //选择视图
     private void createView(int viewIndex) {
         switch (viewIndex){
             case 0:
