@@ -23,10 +23,13 @@ import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    //视图
     private ExercisesView mExerciseView;
     private CourseView mCourseView;
     private MyInfoView mMyInfoView;
+    //中间内容栏
     private FrameLayout mBodyLayout;
+    //底部按钮栏
     private LinearLayout mBottomLayout;
 
     private View mCourseBtn;
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setListener();
         setInitStatus();
     }
+    //获取界面上的UI控件
     private void init() {
         tv_back = (TextView)findViewById(R.id.tv_back);
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_back.setVisibility(View.GONE);
         initBodyLayout();
     }
+    //获取底部导航栏上的控件
     private void initBottomBar() {
         mBottomLayout = (LinearLayout) findViewById(R.id.main_bottom_bar);
         mCourseBtn=findViewById(R.id.bottom_bar_course_btn);
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBodyLayout = (FrameLayout) findViewById(R.id.main_body);
     }
 
+    //控件的点击事件
     @Override
     public void onClick(View v){
         switch (v.getId()){

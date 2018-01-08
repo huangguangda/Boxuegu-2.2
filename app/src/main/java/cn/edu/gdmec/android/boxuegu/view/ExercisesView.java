@@ -113,7 +113,7 @@ public class ExercisesView {
         }
         return mCurrentView;
     }
-    //
+    //显示当前导航栏上方所对应的view界面
     public void showView(){
         if (mCurrentView==null){
             createView();
