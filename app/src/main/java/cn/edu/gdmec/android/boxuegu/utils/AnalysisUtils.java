@@ -21,6 +21,7 @@ import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
  */
 
 public class AnalysisUtils {
+    //解析每章的习题
     public static List<ExercisesBean> getExercisesInfos(InputStream is) throws Exception {
         XmlPullParser parser = Xml.newPullParser();
         parser.setInput(is, "utf-8");
@@ -68,7 +69,7 @@ public class AnalysisUtils {
         return exercisesInfos;
 
     }
-    //设置A,B,C,D选项可点击
+    //设置A,B,C,D选项是否可点击
     public static void setABCDEnable(boolean value, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d){
         iv_a.setEnabled(value);
         iv_b.setEnabled(value);
@@ -127,6 +128,4 @@ public class AnalysisUtils {
         String userName=sp.getString("loginUserName","");
         return userName;
     }
-
-
 }
