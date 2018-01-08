@@ -36,9 +36,11 @@ public class ExercisesDetailActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_detail);
-
+        //设置此界面为竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //获取从习题界面传递过来的章节ID
         id=getIntent().getIntExtra("id",0);
+        //获取从习题界面传递过来的章节标题
         title = getIntent().getStringExtra("title");
         ebl = new ArrayList<ExercisesBean>();
         initData();
@@ -46,6 +48,7 @@ public class ExercisesDetailActivity extends AppCompatActivity{
     }
     private void initData() {
         try {
+            //从xml文件中获取习题数据
             InputStream is = getResources().getAssets().open(
                     "chapter" + id + ".xml"
             );
@@ -54,6 +57,7 @@ public class ExercisesDetailActivity extends AppCompatActivity{
             e.printStackTrace();
         }
     }
+    //初始化控件
     private void init() {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         tv_back = (TextView) findViewById(R.id.tv_back);
@@ -73,9 +77,11 @@ public class ExercisesDetailActivity extends AppCompatActivity{
                 ExercisesDetailActivity.this.finish();
             }
         });
+
         adapter = new ExercisesDetailAdapter(ExercisesDetailActivity.this, new ExercisesDetailAdapter.OnSelectListener() {
             @Override
             public void onSelectA(int position, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d) {
+                //
                 if (ebl.get(position).answer!=1){
                     ebl.get(position).select=1;
                 }else{
