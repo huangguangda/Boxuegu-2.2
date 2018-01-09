@@ -254,7 +254,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean isLogin = sp.getBoolean("isLogin",false);
         return isLogin;
     }
-
     //清除状态
     private void clearLoginStatus() {
         SharedPreferences sp = getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
