@@ -22,6 +22,7 @@ import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 public class PlayHistoryAdapter extends BaseAdapter {
     private Context mContext;
     private List<VideoBean> vbl;
+
     public PlayHistoryAdapter(Context context){
         this.mContext = context;
     }
