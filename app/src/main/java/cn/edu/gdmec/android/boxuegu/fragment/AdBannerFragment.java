@@ -14,8 +14,9 @@ import cn.edu.gdmec.android.boxuegu.R;
  */
 
 public class AdBannerFragment extends Fragment {
-    private String ab;
-    private ImageView iv;
+    private String ab;//广告
+    private ImageView iv;//图片
+
     public static AdBannerFragment newInstance(Bundle args){
         AdBannerFragment af = new AdBannerFragment();
         af.setArguments(args);
@@ -26,6 +27,7 @@ public class AdBannerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle arg = getArguments();
+        //获取广告图片名称
         ab = arg.getString("ad");
     }
 
@@ -59,6 +61,7 @@ public class AdBannerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //创建广告图片控件
         iv = new ImageView(getActivity());
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
